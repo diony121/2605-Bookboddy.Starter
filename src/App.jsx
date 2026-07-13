@@ -1,5 +1,23 @@
+import { getBooks } from "./api/books";
+import { useState } from "react";
+import BookList from "./bookComponents/BookList";
+import { useEffect } from "react";
+
 function App() {
+  const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+    async function loadBooks() {
+      const data = await getBooks();
+      setBooks(data);
+    }
+
+    loadBooks();
+  }, []);
+
   return (
+    <>
+    <BookList books={books} />
     <div>
       <h1>
         <img id="logo-image" src="books.png" />
@@ -34,6 +52,7 @@ function App() {
         the different views of your single page application!
       </p>
     </div>
+    </>
   );
 }
 
