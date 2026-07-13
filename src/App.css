@@ -11,3 +11,13 @@ body {
 }
 
 /* Add your own custom styles here */
+.book-image{
+  width: 100px;
+  height: none;
+}
+
+.single-book{
+  display: flex;
+  gap: 0.5rem;
+
+}
