@@ -2,8 +2,8 @@ import { NavLink } from "react-router";
 const  Navbar = () => {
   return (
     <nav>
-      <NavLink to="#">Books</NavLink>
-      <NavLink to="#">Log In</NavLink>
+      <NavLink to="/">Books</NavLink>
+      <NavLink to="/login">Log In</NavLink>
     </nav>
   )
 }

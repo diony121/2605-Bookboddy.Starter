@@ -7,6 +7,7 @@ export async function getBooks() {
     const { data } = await axios.get(`${API}/books`);
     console.log(data);
     return data;
+    
   } catch (e) {
     console.error(e);
     return [];

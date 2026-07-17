@@ -1,4 +1,4 @@
-import useAuth from "../Context/AuthContext"
+import {useAuth} from "../Context/AuthContext"
 
 const Register = () => {
   const { attemptRegister } = useAuth();
