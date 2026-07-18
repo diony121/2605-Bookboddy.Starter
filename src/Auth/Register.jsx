@@ -1,9 +1,13 @@
 import {useAuth} from "../Context/AuthContext"
+import { Link, useNavigate } from "react-router";
+
+
 
 const Register = () => {
   const { attemptRegister } = useAuth();
+   const navigate = useNavigate();
 
-  const signUp = (formData) => {
+  const signUp = async (formData) => {
     const name = formData.get("name");
     const lastName = formData.get("lastName");
     const email = formData.get("email");
@@ -14,9 +18,12 @@ const Register = () => {
       email,
       password,
     };
-    attemptRegister(user);
+    const success = await attemptRegister(user);
+    if (success) {
+      navigate("/login");
+    }
+  } 
 
-  }
   return (
     <div > 
       <h3>Register for an account</h3>
@@ -41,7 +48,9 @@ const Register = () => {
           <button type="submit">Submit</button>
         </label>
       </form>
-      <li>Already have and account? Log in here. </li>
+     <p>
+        Already have an account? <Link to="/login">Log in here.</Link>
+      </p>
     </div>
   )
 }

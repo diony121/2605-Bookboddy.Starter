@@ -2,17 +2,21 @@ import { useAuth } from "../Context/AuthContext";
 import { Link, useNavigate } from "react-router";
 
 const Login = () => {
-  const { attemptLogin } = useAuth();
+  const { attemptLogin, user } = useAuth();
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const email = formData.get("email");
     const password = formData.get("password");
-    attemptLogin({ email, password });
-    navigate("/");
+    await attemptLogin({ email, password });
+   
   };
+
+  if (user?.id) {
+    navigate("/");
+  }
 
   return (
     <div>

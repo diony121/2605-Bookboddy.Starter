@@ -21,10 +21,10 @@ export function AuthProvider ({children}){
     try { 
       const { data } = await axios.post(
       `${API}/users/login`,
-      credentials,
+      credentials
     )
     window.localStorage.setItem("token", data.token);
-    authenticate(window.localStorage.getItem("token"))
+    await authenticate(window.localStorage.getItem("token"))
     } catch (error) {
       console.log(error)      
     }
