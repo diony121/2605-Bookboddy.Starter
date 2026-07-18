@@ -46,12 +46,18 @@ export function AuthProvider ({children}){
       
     }
   }
+
+  const logout = () => {
+    window.localStorage.removeItem("Token");
+    setUser(null);
+  };
   
   const value = {
     attemptRegister,
     attemptLogin,
     authenticate,
     user,
+    logout,
 
   }
   
