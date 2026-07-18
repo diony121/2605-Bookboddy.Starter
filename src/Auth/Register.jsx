@@ -25,7 +25,7 @@ const Register = () => {
   } 
 
   return (
-    <div > 
+    <div  className="form-section"> 
       <h3>Register for an account</h3>
       <form action={signUp}>
         <label>

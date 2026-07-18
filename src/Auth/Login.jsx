@@ -19,7 +19,7 @@ const Login = () => {
   }
 
   return (
-    <div>
+    <div className="form-section">
       <h1>Log in to your account</h1>
       <form onSubmit={handleSubmit}>
         <label>

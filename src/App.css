@@ -116,3 +116,26 @@ nav {
   font-size: 0.85rem;
   line-height: 1.4;
 }
+.form-section {
+     text-align: center;margin: 0 auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  color: #3a2f24;
+  font-size: 0.95rem;
+}
+
+form button:hover {
+  background-color: #3a2f24;
+}
