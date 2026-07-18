@@ -41,6 +41,12 @@ export function AuthProvider ({children}){
         },
       });
       setUser(data);
+      const resData = await axios.get(`${API}/reservations`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    setReservations(resData.data);
     } catch (error) {
       console.log(error)
       
@@ -85,6 +91,30 @@ export function AuthProvider ({children}){
     }
   };
 
+const reserveBook = async (bookId) => {
+  const token = window.localStorage.getItem("token");
+  try {
+    await axios.post(
+      `${API}/reservations`,
+      { bookId },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    // Re-fetch reservations to get full book details
+    const { data } = await axios.get(`${API}/reservations`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    setReservations(data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 
   
   const value = {
@@ -96,6 +126,7 @@ export function AuthProvider ({children}){
     logout,
     fetchReservations,
     returnBook,
+    reserveBook,
 
   }
   
