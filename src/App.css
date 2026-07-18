@@ -139,3 +139,43 @@ form label {
 form button:hover {
   background-color: #3a2f24;
 }
+
+
+.book-detail {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.book-detail img {
+  width: 180px;
+  margin-bottom: 1rem;
+}
+
+.book-detail h2 {
+  margin: 0 0 0.25rem;
+}
+
+.book-detail h3 {
+  margin: 0 0 1rem;
+  font-weight: normal;
+  color: #666;
+}
+
+.book-detail p {
+  text-align: left;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.book-detail button {
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background: #f0f0f0;
+  cursor: pointer;
+}
+
+.book-detail button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
