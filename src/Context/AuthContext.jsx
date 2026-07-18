@@ -10,7 +10,7 @@ export function AuthProvider ({children}){
 
   const attemptRegister = async (userInfo)=>{
     const { data }  = await axios.post(
-      `${API}/register`,
+      `${API}/users/register`,
       userInfo,
     )
     console.log(data);
@@ -20,7 +20,7 @@ export function AuthProvider ({children}){
   const attemptLogin = async (credentials) => {
     try { 
       const { data } = await axios.post(
-      `${API}/login`,
+      `${API}/users/login`,
       credentials,
     )
     window.localStorage.setItem("token", data.token);
@@ -35,9 +35,9 @@ export function AuthProvider ({children}){
       if(!token){
         throw Error("no token")
       }
-      const {data} = await axios.get(`${API}/me`, {
+      const {data} = await axios.get(`${API}/users/me`, {
         headers:{
-        Authorization: token,
+        Authorization: `Bearer ${token}`,
         },
       });
       setUser(data);
