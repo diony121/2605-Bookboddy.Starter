@@ -6,7 +6,7 @@
 
 body {
   font-family: Georgia, serif;
-  background-color: #f5f0eb;
+  background-color: #ddecf8;
   color: #333;
   max-width: 800px;
   margin: 0 auto;
@@ -90,7 +90,6 @@ nav {
 .book-info h2 {
   margin: 0 0 0.25rem;
   font-size: 1.1rem;
-  
 }
 
 .book-info h2 a {
@@ -117,7 +116,8 @@ nav {
   line-height: 1.4;
 }
 .form-section {
-     text-align: center;margin: 0 auto;
+  text-align: center;
+  margin: 0 auto;
 }
 
 form {
@@ -139,7 +139,6 @@ form label {
 form button:hover {
   background-color: #3a2f24;
 }
-
 
 .book-detail {
   text-align: center;
@@ -178,4 +177,40 @@ form button:hover {
 .book-detail button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.account-page {
+  padding: 1.5rem;
+}
+
+.account-page h3 {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e0d5c7;
+}
+
+.reservation {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.reservation:last-child {
+  border-bottom: none;
+}
+
+.reservation h4 {
+  margin: 0 0 0.25rem;
+}
+
+.reservation p {
+  margin: 0 0 0.5rem;
+  color: #666;
+}
+
+.reservation button {
+  padding: 0.35rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background: #f0f0f0;
+  cursor: pointer;
 }

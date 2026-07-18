@@ -14,7 +14,7 @@ const Account = () => {
   }
 
   return (
-    <div>
+    <div className="account-page">
       <h2>Welcome, {user.firstname}!</h2>
       <p>Your email on file with us is {user.email}.</p>
 
@@ -23,7 +23,7 @@ const Account = () => {
         <p>You have no reservations yet.</p>
       ) : (
         reservations.map((book) => (
-          <div key={book.id}>
+          <div key={book.id} className="reservation">
             <h4>{book.title}</h4>
             <p>{book.author}</p>
             <button onClick={() => returnBook(book.id)}>Return book</button>
