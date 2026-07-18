@@ -58,7 +58,7 @@ export function AuthProvider ({children}){
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
-export default function useAuth() {
+export  function useAuth() {
   const context = useContext(AuthContext);
   if (!context){
     throw Error("useBooks must be used within the context of authProvider")

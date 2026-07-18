@@ -1,58 +1,24 @@
-import { getBooks } from "./api/books";
-import { useState } from "react";
+import { Routes, Route } from "react-router";
 import BookList from "./bookComponents/BookList";
-import { useEffect } from "react";
+import Books from "./pages/Books";
+import SingleBook from "./pages/SingleBook";
+import Login from "./Auth/Login";
+import Register from "./Auth/Register";
+import Error404 from "./Layout/Error404";
+import Layout from "./Layout/Layout";
 
 function App() {
-  const [books, setBooks] = useState([]);
-
-  useEffect(() => {
-    async function loadBooks() {
-      const data = await getBooks();
-      setBooks(data);
-    }
-
-    loadBooks();
-  }, []);
-
   return (
-    <>
-    <BookList books={books} />
-    <div>
-      <h1>
-        <img id="logo-image" src="books.png" />
-        Library App
-      </h1>
-
-      <p>
-        Complete the React components needed to allow users to browse a library catalog, check out
-        books, log in to their account,
-        <br />
-        log out of their account, review their account, and return books that they've finished
-        reading.
-      </p>
-
-      <p>
-        Recall that React really only cares about state. When our state changes our view changes as
-        well.
-      </p>
-
-      <p>
-        To that end, you may need to use some state in this top-level component in other components
-        by passing them down as a prop.
-      </p>
-      <p>OR</p>
-      <p>
-        Implement context in a way that allows all the components the need to know what's in the
-        context to have access to and be able to consume the right context.
-      </p>
-
-      <p>
-        Don't forget that our URL should dictate our view! Set up React Router to navigate between
-        the different views of your single page application!
-      </p>
-    </div>
-    </>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route index element={<Books />} />
+        <Route path="/books" element={<Books />} />
+        <Route path="/books/:id" element={<SingleBook />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="*" element={<Error404 />} />
+      </Route>
+    </Routes>
   );
 }
 
