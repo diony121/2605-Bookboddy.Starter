@@ -10,6 +10,7 @@ const  Navbar = () => {
       <NavLink to="/">Books</NavLink>
         {user?.id ? (
           <div>
+            <NavLink to="/account">Account</NavLink>
             <NavLink to="/" onClick={logout}>Log Out</NavLink>
           </div>
           ) : (

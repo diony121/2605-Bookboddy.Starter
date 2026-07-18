@@ -1,12 +1,12 @@
 import axios from "axios";
 import {useContext, createContext, useState} from "react";
-import App from "../App";
 const API = import.meta.env.VITE_API_URL;
 
 const AuthContext = createContext();
 
 export function AuthProvider ({children}){
   const [user, setUser] = useState();
+  const [reservations, setReservations] = useState([]);
 
   const attemptRegister = async (userInfo)=>{
     const { data }  = await axios.post(
@@ -48,16 +48,54 @@ export function AuthProvider ({children}){
   }
 
   const logout = () => {
-    window.localStorage.removeItem("Token");
+    window.localStorage.removeItem("token");
     setUser(null);
+    setReservations([]);
   };
+
+  const  fetchReservations = async () => {
+    const token = window.localStorage.getItem("token");
+    if (!token){
+      return
+    }
+    try {
+      const {data} = await axios.get(`${API}/reservations`, {
+        headers: {
+          Authorization:  `Bearer ${token}`,
+        },
+      });
+      setReservations(data);
+    } catch (error) {
+      console.log(error)
+      
+    }
+  };
+
+ const returnBook = async (reservationId) => {
+    const token = window.localStorage.getItem("token");
+    try {
+      await axios.delete(`${API}/reservations/${reservationId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setReservations(reservations.filter((r) => r.id !== reservationId));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+
   
   const value = {
     attemptRegister,
     attemptLogin,
     authenticate,
     user,
+    reservations,
     logout,
+    fetchReservations,
+    returnBook,
 
   }
   
