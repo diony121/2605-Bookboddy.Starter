@@ -5,17 +5,20 @@ const  Navbar = () => {
   const {user, logout} = useAuth()
   return (
     <nav>
-      <h1>Books Boddy</h1>
-
-      <NavLink to="/">Books</NavLink>
+      <h1>Books Buddy</h1>
+      <div className="nav-links">
+        <NavLink to="/">Books</NavLink>
         {user?.id ? (
-          <div>
+          <>
             <NavLink to="/account">Account</NavLink>
-            <NavLink to="/" onClick={logout}>Log Out</NavLink>
-          </div>
-          ) : (
-      <NavLink to="/login">Log In</NavLink>
-          )};
+            <NavLink to="/" onClick={logout}>
+              Log Out
+            </NavLink>
+          </>
+        ) : (
+          <NavLink to="/login">Log In</NavLink>
+        )}
+        </div>
     </nav>
   )
 }

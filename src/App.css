@@ -1,23 +1,64 @@
-body {
-  font-family: Georgia, serif;
-  background-color: #f8f8f8;
+
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-#logo-image {
-  width: 30px;
-  margin-right: 10px;
+body {
+  font-family: Georgia, serif;
+  background-color: #f5f0eb; 
+  color: #333;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-/* Add your own custom styles here */
-.book-image{
-  width: 100px;
-  height: none;
-}
-
-.single-book{
+/*navigation----------*/
+nav {
   display: flex;
-  gap: 0.5rem;
+  color: #1c6f64;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: #f5f0eb;
+  border-bottom: 1px solid #e0d5c7;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
 
+nav h1 {
+  color: #1c6f64;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: #1c6f64;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.4rem 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+nav a:hover {
+  color: #3a2f24;
+  border-bottom-color: #3a2f24;
+}
+
+nav a.active {
+  color: #3a2f24;
+  font-weight: bold;
+  border-bottom-color: #3a2f24;
+}
+
+nav {
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 0 0 8px 8px;
 }
